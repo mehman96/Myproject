@@ -1,0 +1,44 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<h3>Add services box</h3>
+<form action="/admin/servicesbox" method='POST'>
+    <input type="text" class="form-control my-2"name="services_icon"placeholder="services icon">
+    <input type="text" class="form-control my-2"name="services_title_heading"placeholder="services title heading">
+    <input type="text" class="form-control my-2"name="services_title"placeholder="services_title">
+    <input type="submit" class="btn btn-primary" value="add services box">
+
+</form>
+<hr>
+<h3 class="my-3"> Services box</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>icon_name</th>
+            <th>title_heading</th>
+            <th>title</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for servicebox in serviceboxs %}
+
+        <tr>
+            <td scope="row">{{servicebox.id}}</td>
+            <td>{{servicebox.services_icon}}</td>
+            <td>{{servicebox.services_title_heading}}</td>
+            <td>{{servicebox.services_title}}</td>
+            <td>
+                <a href="/admin/servicesboxdelete/{{servicebox.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/servicesboxupdate/{{servicebox.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

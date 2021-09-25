@@ -1,0 +1,38 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<h3>Add Feedback desc</h3>
+<form action="/admin/fkend" method='POST'>
+    <input type="text" class="form-control my-2"name="line_panel_desc"placeholder="line panel desc">  
+    <input type="submit" class="btn btn-primary" value="Add Feedback end desc">
+
+</form>
+<hr>
+<h3 class="my-3"> Feedback desc</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>feedback desc</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for end  in ends %}
+
+        <tr>
+            <td scope="row">{{end.id}}</td>
+            <td>{{end.line_panel_desc}}</td>
+            <td>
+                <a href="/admin/fkenddelete/{{end.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/fkendupdate/{{end.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<h3> Add contact header</h3>
+<form action="/admin/contactheading" method='POST'>
+    <input type="text" class="form-control my-2"name="contact_subheading_name"placeholder="contact subheading name">
+    <input type="text" class="form-control my-2"name="contact_heading_name"placeholder="contact heading name">    
+    <input type="submit" class="btn btn-primary" value=" Add contactheading ">
+
+</form>
+<hr>
+<h3 class="my-3"> contact header</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>contactme sub</th>
+            <th>contactme head</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contact  in contacts %}
+
+        <tr>
+            <td scope="row">{{contact.id}}</td>
+            <td>{{contact.contact_subheading_name}}</td>
+            <td>{{contact.contact_heading_name}}</td>
+            <td>
+                <a href="/admin/contactheadingdelete/{{contact.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/contactheadingupdate/{{contact.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<h3>Socical Icons</h3>
+<form action="/admin/social" method='POST'>
+    <input type="text" class="form-control my-2"name="social_icon_name"placeholder="social icon name">
+    <input type="text" class="form-control my-2"name="social_icon"placeholder="social icon">
+    <input type="text" class="form-control my-2"name="social_icon_link"placeholder="social icon link">
+    <input type="submit" class="btn btn-primary" value="Add Icon">
+
+</form>
+<hr>
+<h3 class="my-3"> Icons</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th> icon name</th>
+            <th>icon</th>
+            <th>icon link</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for icon in icons %}
+
+        <tr>
+            <td scope="row">{{icon.id}}</td>
+            <td>{{icon.social_icon_name}}</td>
+            <td>{{icon.social_icon}}</td>
+            <td>{{icon.social_icon_link}}</td>
+            <td>
+                <a href="/admin/socialdelete/{{icon.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/socialupdate/{{icon.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

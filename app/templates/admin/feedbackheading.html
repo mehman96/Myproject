@@ -1,0 +1,41 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<h3>Add Feedbackheading</h3>
+<form action="/admin/feedbackheading" method='POST'>
+    <input type="text" class="form-control my-2"name="testi_subheading"placeholder="testi subheading">
+    <input type="text" class="form-control my-2"name="testi_heading"placeholder="testi heading">    
+    <input type="submit" class="btn btn-primary" value="Add Feedbackheading">
+
+</form>
+<hr>
+<h3 class="my-3"> Feedbackheading</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>testi sub</th>
+            <th>testi head</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for feed  in feeds %}
+
+        <tr>
+            <td scope="row">{{feed.id}}</td>
+            <td>{{feed.testi_subheading}}</td>
+            <td>{{feed.testi_heading}}</td>
+            <td>
+                <a href="/admin/feedbackheadingdelete/{{feed.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/feedbackheadingupdate/{{feed.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

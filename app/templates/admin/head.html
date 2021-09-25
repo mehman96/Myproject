@@ -1,0 +1,39 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<h3>Add Menu bar</h3>
+<form action="/admin/head" method='POST'>
+    <input type="text" class="form-control my-2"name="menu_name"placeholder="menu name">
+    <input type="submit" class="btn btn-primary" value="Add Menu bar">
+
+</form>
+<hr>
+<h3 class="my-3">Menu bar</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th> menu name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for head  in heads %}
+
+        <tr>
+            <td scope="row">{{head.id}}</td>
+            <td>{{head.menu_icon}}</td>
+            <td>{{head.menu_name}}</td>
+           
+            <td>
+                <a href="/admin/headdelete/{{head.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/headupdate/{{head.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

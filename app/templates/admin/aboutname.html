@@ -1,0 +1,43 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<h3>Add about heading</h3>
+<form action="/admin/aboutname" method='POST'>
+    <input type="text" class="form-control my-2" name="about_heading_name" placeholder="head name">
+    <input type="text" class="form-control my-2" name="about_desc_name" placeholder="desc">
+    <input type="submit" class="btn btn-primary" value="Add about heading">
+
+</form>
+<hr>
+<h3 class="my-3"> About Heading</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>sub heading</th>
+            <th>heading</th>
+            <th></th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aboutname in aboutnames %}
+
+        <tr>
+            <td scope="row">{{aboutname.id}}</td>
+            <td>{{aboutname.about_heading_name}}</td>
+            <td>{{aboutname.about_desc_name}}</td>
+
+            <td>
+                <a href="/admin/aboutdelete/{{aboutname.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/aboutupdate/{{aboutname.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<form action="/admin/servicesboxupdate/{{servicebox.id}}" method='POST'>
+<input type="text" class="form-control my-2" name="services_icon" placeholder="subhead" value="{{servicebox.services_icon}}">
+<input type="text" class="form-control my-2" name="services_title_heading" placeholder="heading"value="{{servicebox.services_title_heading}}">
+<input type="text" class="form-control my-2" name="services_title" placeholder="heading"value="{{servicebox.services_title}}">
+<input type="submit" class="btn btn-primary" value="services head update">
+
+</form>
+
+
+{% endblock %}

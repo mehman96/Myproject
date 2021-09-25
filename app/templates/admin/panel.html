@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<h3>Add about panel</h3>
+<form action="/admin/panel" method='POST' enctype="multipart/form-data">
+    <input type="file" class="form-control my-2"name="line_panel_img"placeholder=" line panel img">
+    <input type="text" class="form-control my-2"name="line_panel_subheading"placeholder="line panel subheading">
+    <input type="text" class="form-control my-2"name="line_panel_heading"placeholder="line panel heading">
+    <input type="text" class="form-control my-2"name="line_panel_title"placeholder="line panel title">
+    <input type="submit" class="btn btn-primary" value="Add about panel">
+
+</form>
+<hr>
+<h3 class="my-3"> About panel</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>panel img</th>
+            <th>panel sub</th>
+            <th> panel head</th>
+            <th>desc</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for panel in panels %}
+
+        <tr>
+            <td scope="row">{{panel.id}}</td>
+            <td>{{panel.line_panel_img}}</td>
+            <td>{{panel.line_panel_subheading}}</td>
+            <td>{{panel.line_panel_heading}}</td>
+            <td>{{panel.line_panel_title}}</td>
+    
+            <td>
+                <a href="/admin/paneldelete/{{panel.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/panelupdate/{{panel.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

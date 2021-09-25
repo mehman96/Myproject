@@ -1,0 +1,11 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<form action="/admin/logoupdate/{{logo.id}}" method='POST'enctype="multipart/form-data">
+<input type="text" class="form-control my-2" name="commenter_name" placeholder="name"value="{{logo.logo_name}}">
+<input type="file" class="form-control my-2" name="logo_img">
+</form>
+
+
+{% endblock %}

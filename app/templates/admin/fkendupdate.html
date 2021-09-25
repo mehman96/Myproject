@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<form action="/admin/fkendupdate/{{end.id}}" method='POST'>
+<input type="text" class="form-control my-2" name="line_panel_desc" placeholder="sub heading" value="{{line_panel_desc}}">
+<input type="submit" class="btn btn-primary" value="feedback desc update">
+
+</form>
+
+
+{% endblock %}

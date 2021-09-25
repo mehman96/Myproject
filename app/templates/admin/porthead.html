@@ -1,0 +1,39 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<h3 class="my-3"> Portfolio heading </h3>
+<form action="/admin/porthead" method='POST'>
+<input type="text"  class="form-control my-2" name="portfolio_subheading"  placeholder="portfolio subheading" >
+<input type="text"  class="form-control my-2" name="portfolio_heading"  placeholder="portfolio heading" >
+<input type="submit" class="btn btn-primary" value="Add heading">
+
+</form>
+<hr>
+<h3 class="my-3"> Heading</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>sub heading</th>
+            <th>heading</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for porthead  in portheads %}
+        
+        <tr>
+            <td scope="row">{{porthead.id}}</td>
+            <td>{{porthead.portfolio_subheading}}</td>
+            <td>{{porthead.portfolio_heading}}</td>
+        
+            <td>
+                <a href="/admin/portdelete/{{porthead.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/portheadupdate/{{porthead.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

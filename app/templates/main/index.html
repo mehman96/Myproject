@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>project</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/app/static/main/assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="static/main/css/styles.css  " rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                
+                <a class="navbar-brand" href="#page-top"><img src="static/main/assets/img/navbar-logo.svg" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        {% for head in heads %}
+                        <li class="nav-item"><a class="nav-link" href="#services">{{head.menu_name}}</a></li>
+                    {% endfor %} 
+                    </ul>
+                </div>
+              
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            {% for menu in menus %}
+            <div class="container">
+                <div class="masthead-subheading">{{menu.menu_subheading}}</div>
+                <div class="masthead-heading text-uppercase"> {{menu.menu_heading}} </div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services">{{menu.menu_button_name}}</a>
+            </div>
+               {% endfor %}
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                {%  for service in services %}
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">{{service.services_subheading}}</h2>
+                    <h3 class="section-subheading text-muted">{{service.services_heading}}</h3>
+                </div>
+{% endfor %}
+
+                <div class="row text-center">
+                    {% for servicebox in serviceboxs %}
+                    
+                    
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="{{servicebox.services_icon}}"></i>
+                        </span>
+                        <h4 class="my-3">{{servicebox.services_title_heading}}</h4>
+                        <p class="text-muted">{{servicebox.services_title}}</p>
+                    </div>
+                  {% endfor %}
+                   
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+{% for  porthead  in portheads %}
+
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">{{porthead.portfolio_subheading}}</h2>
+                    <h3 class="section-subheading text-muted">{{porthead.portfolio_heading}}</h3>
+                </div>
+{% endfor %}
+                <div class="row">
+                    {% for post in posts %}
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="../../static/uploads/{{post.project_img}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">{{post.project_name}}</div>
+                                <div class="portfolio-caption-subheading text-muted">{{post.project_header}}</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+           {% endfor %}
+                </div> 
+        </section>
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                {% for aboutname in aboutnames %}
+        
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">{{aboutname.about_heading_name}}</h2>
+                    <h3 class="section-subheading text-muted">{{aboutname.about_desc_name}}</h3>
+                </div>
+                {% endfor %}
+
+    
+     <div class="container">
+                <ul class="timeline">
+               {% for panel in panels %}
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="static/uploads/{{panel.line_panel_img}}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>{{panel.line_panel_subheading}}</h4>
+                                <h4 class="subheading">{{panel.line_panel_heading}}</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">{{panel.line_panel_title}}</p></div>
+                        </div>
+                    </li>
+                    
+{% endfor %}
+
+            </div>
+            </div>
+
+        </section>
+
+
+
+
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                {% for feed  in feeds %}
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">{{feed.testi_subheading}}</h2>
+                    <h3 class="section-subheading text-muted">{{feed.testi_heading}}</h3>
+                </div>
+ {% endfor %}
+
+
+        
+                <div class="row">
+              {% for test  in tests %}
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="/static/uploads/{{test.commenter_img}}" alt="..." />
+                            <h4>{{test.commenter_name}}</h4>
+                            <p class="text-muted">{{test.commenter_title}}</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="{{test.commenter_twitter}}"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="{{test.commenter_facebook}}"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="{{test.commenter_linkedin}}"></i></a>
+                            
+                        </div>
+                  
+                    </div>
+                    
+                    {% endfor %}
+
+ {% for end in ends %}
+           
+ <div class="row">
+    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"> {{end.line_panel_desc}}</p></div>
+</div>
+                 
+{% endfor %}   
+            
+            </div>
+                    
+        </section>
+        <!-- <-- Clients--> 
+<div class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                     {% for logo in logos %}
+                    
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="/static/uploads/{{logo.logo_img}}" alt="..." /></a>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            {% for contact  in contacts %}
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">{{contact.contact_subheading_name}}</h2>
+                    <h3 class="section-subheading text-muted">{{contact.contact_heading_name}}</h3>
+                </div>
+   {% endfor %}
+
+
+   
+  
+                <form  action="admin/contactform" id="contactForm" method="POST" >
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" name="user_name">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" name="user_email" >
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" name="user_phone">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <textarea class="form-control" id="message" placeholder="Your Message *" required="required" name="user_message" ></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div id="success"></div>
+                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
+                    
+                    </div>
+ 
+                </form>
+            </div>
+        </section>
+
+
+<footer class="footer py-4">
+            <div class="container">
+         
+                <div class="row align-items-center">  
+               
+                    <div class="col-lg-4 text-lg-start">
+                        Copyright &copy; Your Website
+                        <!-- This script automatically adds the current year to your website footer-->
+                        <!-- (credit: https://updateyourfooter.com/)-->
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                    </div>
+                   
+
+                    <div class="col-lg-4 my-3 my-lg-0">
+                       {%   for icon in icons %}
+                <a class="btn btn-dark btn-social mx-2" href="{{icon.social_icon_link}}"><i class="{{icon.social_icon}}"></i></a>
+                      {% endfor %}
+                    </div>
+                   
+                     <div class="col-lg-4 text-lg-end   my-3">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div> 
+                </div>
+            </div>
+        </footer>
+
+
+
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                {% for blog in blogs %}
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="../../static/main/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">{{blog.project_name_js}}</h2>
+                                    <p class="item-intro text-muted">{{blog.project_header_js}}</p>
+                                    <img class="img-fluid d-block mx-auto" src="../../static/uploads/{{blog.project_img_js}}" alt="..." />
+                                    <p>{{blog.project_desc_js}}</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            {{blog.project_client}}
+
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            {{blog.project_cat}}
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="{{blog.close_icon}}"></i>
+                                     {{blog.close_icon_name}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      {% endfor %}
+                </div> 
+             
+            </div>
+        </div>
+          
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/app/static/main/js/scripts.js"></script>
+    </body>
+</html>

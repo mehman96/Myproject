@@ -1,0 +1,43 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<h3 class="my-3"> menu update</h3>
+<form action="/admin/menuupdate" method='POST'>
+<input type="text"  class="form-control my-2" name="menu_subheading"  placeholder="menu subheading" >
+<input type="text"  class="form-control my-2" name="menu_heading"  placeholder="menu heading" >
+<input type="text"  class="form-control my-2" name="menu_button_name"  placeholder="menu button name" >
+
+<input type="submit" class="btn btn-primary" value="update menu">
+
+</form>
+<hr>
+<h3 class="my-3"> menu</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>sub heading</th>
+            <th>heading</th>
+            <th>button name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for menu  in menus %}
+        
+        <tr>
+            <td scope="row">{{menu.id}}</td>
+            <td>{{menu.menu_subheading}}</td>
+            <td>{{menu.menu_heading}}</td>
+            <td>{{menu.menu_button_name}}</td>
+        
+            <td>
+                <a href="/admin/menudelete/{{menu.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/menuupdate/{{menu.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

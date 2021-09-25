@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<form action="/admin/panelupdate/{{panel.id}}" method='POST'enctype="multipart/form-data">
+<input type="file" class="form-control my-2" name="line_panel_img">
+<input type="text" class="form-control my-2" name="line_panel_subheading" placeholder="subhead"value="{{panel.line_panel_subheading}}">
+<input type="text" class="form-control my-2" name="line_panel_heading" placeholder="header"value="{{panel.line_panel_heading}}">
+<input type="text" class="form-control my-2" name="line_panel_title" placeholder="desc"value="{{panel.line_panel_title}}">
+<input type="submit" class="btn btn-primary" value="panel update">
+
+</form>
+
+
+{% endblock %}

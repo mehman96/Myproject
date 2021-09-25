@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<form action="/admin/feedbackheadingupdate/{{feed.id}}" method='POST'>
+<input type="text" class="form-control my-2" name="testi_subheading" placeholder="sub heading" value="{{testi_subheading}}">
+<input type="text" class="form-control my-2" name="testi_heading" placeholder="heading"value="{{testi_heading}}">
+<input type="submit" class="btn btn-primary" value="feedback head update">
+
+</form>
+
+
+{% endblock %}
