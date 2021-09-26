@@ -1,16 +1,24 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
-<h3>Add Feedbackheading</h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary"  >Add Feedbackheading</h3>
+<div class="col-12">
 <form action="/admin/feedbackheading" method='POST'>
     <input type="text" class="form-control my-2"name="testi_subheading"placeholder="testi subheading">
-    <input type="text" class="form-control my-2"name="testi_heading"placeholder="testi heading">    
+    <input type="text" class="form-control my-2"name="testi_heading"placeholder="testi heading">
+    <hr>    
     <input type="submit" class="btn btn-primary" value="Add Feedbackheading">
-
+    <hr>
 </form>
+</div>
 <hr>
-<h3 class="my-3"> Feedbackheading</h3>
+
+
+<div class="col-12">
+<h3 class="text-warning"> Feedbackheading</h3>
 <table class="table">
     <thead>
         <tr>
@@ -20,13 +28,16 @@
             <th>Actions</th>
         </tr>
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for feed  in feeds %}
 
         <tr>
-            <td scope="row">{{feed.id}}</td>
-            <td>{{feed.testi_subheading}}</td>
-            <td>{{feed.testi_heading}}</td>
+            <td class="text-primary"  scope="row">{{feed.id}}</td>
+            <td class="text-primary" >{{feed.testi_subheading}}</td>
+            <td class="text-primary" >{{feed.testi_heading}}</td>
             <td>
                 <a href="/admin/feedbackheadingdelete/{{feed.id}}"> <i class="fas fa-trash-alt"></i></a>
                 <a href="/admin/feedbackheadingupdate/{{feed.id}}"> <i class="fas fa-edit"></i></a>

@@ -2,13 +2,15 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
+<div class="container-sm">
+<hr>
+<h3 class="text-primary"> Update Contat heading</h3>
 <form action="/admin/contactheadingupdate/{{contact.id}}" method='POST'>
 <input type="text" class="form-control my-2" name="contact_subheading_name" placeholder="sub head" value="{{contact_subheading_name}}">
 <input type="text" class="form-control my-2" name="contact_heading_name" placeholder="head"value="{{contact_heading_name}}">
-<input type="submit" class="btn btn-primary" value="contactme  update">
-
+<input type="submit" class="btn btn-primary" value="Update Contat heading">
+<hr>
 </form>
-
+</div>
 
 {% endblock %}

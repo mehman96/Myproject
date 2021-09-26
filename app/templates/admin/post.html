@@ -1,16 +1,24 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-<h3 class="my-3"> Add post </h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<div class="col-12">   
+<h3 class="text-primary"> Add post </h3>
 <form action="/admin/post" method='POST' enctype="multipart/form-data">
 <input type="file"  class="form-control my-2" name="project_img"  placeholder="Project img" >
 <input type="text"  class="form-control my-2" name="project_name"  placeholder="Project name" >
 <input type="text"  class="form-control my-2" name="project_header"  placeholder="Project header" >
-<input type="submit" class="btn btn-primary" value="Add Post">
-
-</form>
 <hr>
-<h3 class="my-3"> All Post </h3>
+<input type="submit" class="btn btn-primary" value="Add Post">
+<hr>
+</form>
+</div>
+<hr>
+
+<div class="col-12">
+<h3 class="text-warning"> All Post </h3>
 <table class="table">
     <thead>
         <tr>
@@ -21,14 +29,17 @@
             <th>Actions</th>
         </tr>
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for post in posts %}
         
         <tr>
-            <td scope="row">{{post.id}}</td>
-            <td>{{post.project_img}}</td>
-            <td>{{post.project_name}}</td>
-            <td>{{post.project_header}}</td>
+            <td   class="text-primary" scope="row">{{post.id}}</td>
+            <td   class="text-primary">{{post.project_img}}</td>
+            <td  class="text-primary" >{{post.project_name}}</td>
+            <td  class="text-primary" >{{post.project_header}}</td>
             <td>
                 <a href="/admin/postdelete/{{post.id}}"> <i class="fas fa-trash-alt"></i></a>
                 <a href="/admin/postupdate/{{post.id}}"> <i class="fas fa-edit"></i></a>

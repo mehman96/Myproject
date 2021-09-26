@@ -1,7 +1,9 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
+<div class="container-sm">
+<hr>
+<h3 class="text-primary"> Update feedback</h3>
 <form action="/admin/feedbackupdate/{{test.id}}" method='POST'enctype="multipart/form-data">
 <input type="file" class="form-control my-2" name="commenter_img">
 <input type="text" class="form-control my-2" name="commenter_name" placeholder="name"value="{{test.commenter_name}}">
@@ -9,9 +11,12 @@
 <input type="text" class="form-control my-2" name="commenter_twitter" placeholder="title"value="{{test.commenter_twitter}}">
 <input type="text" class="form-control my-2" name="commenter_facebook" placeholder="title"value="{{test.commenter_facebook}}">
 <input type="text" class="form-control my-2" name="commenter_linkedin" placeholder="title"value="{{test.commenter_linkedin}}">
+<hr>
 <input type="submit" class="btn btn-primary" value="feedback  update">
-
+<hr>
 </form>
+</div>
+
 
 
 {% endblock %}

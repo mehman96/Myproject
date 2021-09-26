@@ -64,7 +64,7 @@ def headupdate(id):
       head.menu_name=request.form['menu_name']
       db.session.commit()
       return redirect('/admin/head')
-   return loginCheck('admin/headupdate.html',head=head)
+   return loginCheck (render_template('admin/headupdate.html',head=head))
 
 # menu
 @app.route('/admin/menu', methods=['GET','POST']) 

@@ -1,18 +1,24 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
-<h3> Add menu</h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary" > Add menu</h3>
+<div class="col-12">
 <form action="/admin/menu" method='POST' enctype="multipart/form-data">
     <input type="text" class="form-control my-2"name="menu_subheading"placeholder=" menu subheading">
     <input type="text" class="form-control my-2"name="menu_heading"placeholder=" menu heading">
     <input type="text" class="form-control my-2"name="menu_button_name"placeholder="menu button name ">
-
-    <input type="submit" class="btn btn-primary" value="Add menu">
-
-</form>
 <hr>
-<h3 class="my-3">site heading</h3>
+    <input type="submit" class="btn btn-primary" value="Add menu">
+    <hr>
+</form>
+</div>
+<hr>
+
+<div class="col-12">
+<h3 class="text-warning">site heading</h3>
 <table class="table">
     <thead>
         <tr>
@@ -22,14 +28,17 @@
             <th>menu_button_name</th>
         </tr>
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for menu  in menus %}
 
         <tr>
-            <td scope="row">{{menu.id}}</td>
-            <td>{{menu.menu_subheading}}</td>
-            <td>{{menu.menu_heading}}</td>
-            <td>{{menu.menu_button_name}}</td>
+            <td class="text-primary" scope="row">{{menu.id}}</td>
+            <td class="text-primary" >{{menu.menu_subheading}}</td>
+            <td class="text-primary">{{menu.menu_heading}}</td>
+            <td class="text-primary" >{{menu.menu_button_name}}</td>
            
             <td>
                 <a href="/admin/menudelete/{{menu.id}}"> <i class="fas fa-trash-alt"></i></a>

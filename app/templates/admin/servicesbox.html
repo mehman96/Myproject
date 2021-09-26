@@ -1,17 +1,24 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
-<h3>Add services box</h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<div class="col-12">   
+<h3 class="text-primary" >Add services box</h3>   
 <form action="/admin/servicesbox" method='POST'>
     <input type="text" class="form-control my-2"name="services_icon"placeholder="services icon">
     <input type="text" class="form-control my-2"name="services_title_heading"placeholder="services title heading">
     <input type="text" class="form-control my-2"name="services_title"placeholder="services_title">
+    <hr>
     <input type="submit" class="btn btn-primary" value="add services box">
-
+    <hr>
 </form>
+</div>
 <hr>
-<h3 class="my-3"> Services box</h3>
+
+<div class="col-12">
+<h3 class="text-warning"> Services box</h3>
 <table class="table">
     <thead>
         <tr>
@@ -22,14 +29,17 @@
             <th>Actions</th>
         </tr>
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for servicebox in serviceboxs %}
 
         <tr>
-            <td scope="row">{{servicebox.id}}</td>
-            <td>{{servicebox.services_icon}}</td>
-            <td>{{servicebox.services_title_heading}}</td>
-            <td>{{servicebox.services_title}}</td>
+            <td class="text-primary"  scope="row">{{servicebox.id}}</td>
+            <td class="text-primary" >{{servicebox.services_icon}}</td>
+            <td class="text-primary" >{{servicebox.services_title_heading}}</td>
+            <td class="text-primary" >{{servicebox.services_title}}</td>
             <td>
                 <a href="/admin/servicesboxdelete/{{servicebox.id}}"> <i class="fas fa-trash-alt"></i></a>
                 <a href="/admin/servicesboxupdate/{{servicebox.id}}"> <i class="fas fa-edit"></i></a>

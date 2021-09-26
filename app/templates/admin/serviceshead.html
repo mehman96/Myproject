@@ -1,16 +1,23 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
-<h3>Add services head</h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary" >Add services heading</h3>   
+<div class="col-12">
 <form action="/admin/serviceshead" method='POST'>
     <input type="text" class="form-control my-2"name="services_subheading"placeholder="services sub head">
     <input type="text" class="form-control my-2"name="services_heading"placeholder="services head">
+    <hr>
     <input type="submit" class="btn btn-primary" value=" add services head">
-
+    <hr>
 </form>
+</div>
 <hr>
-<h3 class="my-3"> Services</h3>
+
+<div class="col-12">
+<h3 class="text-warning"> Services</h3>
 <table class="table">
     <thead>
         <tr>
@@ -20,13 +27,16 @@
             <th>Actions</th>
         </tr>
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for service in services %}
 
         <tr>
-            <td scope="row">{{service.id}}</td>
-            <td>{{service.services_subheading}}</td>
-            <td>{{service.services_heading}}</td>
+            <td class="text-primary" scope="row">{{service.id}}</td>
+            <td class="text-primary">{{service.services_subheading}}</td>
+            <td class="text-primary">{{service.services_heading}}</td>
             <td>
                 <a href="/admin/servicesheaddelete/{{service.id}}"> <i class="fas fa-trash-alt"></i></a>
                 <a href="/admin/servicesheadupdate/{{service.id}}"> <i class="fas fa-edit"></i></a>

@@ -1,17 +1,25 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
-<h3>Socical Icons</h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary" >Socical Icon</h3>   
+<div class="col-12">
 <form action="/admin/social" method='POST'>
     <input type="text" class="form-control my-2"name="social_icon_name"placeholder="social icon name">
     <input type="text" class="form-control my-2"name="social_icon"placeholder="social icon">
     <input type="text" class="form-control my-2"name="social_icon_link"placeholder="social icon link">
+    <hr>
     <input type="submit" class="btn btn-primary" value="Add Icon">
-
+    <hr>
 </form>
+</div>
 <hr>
-<h3 class="my-3"> Icons</h3>
+
+
+<div class="col-12">
+<h3 class="text-warning"> Icons</h3>
 <table class="table">
     <thead>
         <tr>
@@ -22,14 +30,17 @@
             <th>Actions</th>
         </tr>
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for icon in icons %}
 
         <tr>
-            <td scope="row">{{icon.id}}</td>
-            <td>{{icon.social_icon_name}}</td>
-            <td>{{icon.social_icon}}</td>
-            <td>{{icon.social_icon_link}}</td>
+            <td class="text-primary"scope="row">{{icon.id}}</td>
+            <td class="text-primary">{{icon.social_icon_name}}</td>
+            <td class="text-primary">{{icon.social_icon}}</td>
+            <td class="text-primary">{{icon.social_icon_link}}</td>
             <td>
                 <a href="/admin/socialdelete/{{icon.id}}"> <i class="fas fa-trash-alt"></i></a>
                 <a href="/admin/socialupdate/{{icon.id}}"> <i class="fas fa-edit"></i></a>

@@ -1,7 +1,9 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-<h3 class="my-3"> Update postjs</h3>
+<div class="container-sm">
+<hr>
+<h3 class="text-primary"> Update postjs</h3>
 <form action="/admin/blogupdate/{{blog.id}}" method='POST' enctype="multipart/form-data">
 <input type="text"  class="form-control my-2" name="project_name_js" value="{{blog.project_name_js}}"  placeholder="project name js" >
 <input type="text"  class="form-control my-2" name="project_header_js" value="{{blog.project_header_js}}"placeholder="project header js" >
@@ -11,9 +13,11 @@
 <input type="text"  class="form-control my-2" name="project_cat" value="{{blog.project_cat}}"  placeholder="project cat" >
 <input type="text"  class="form-control my-2" name="close_icon" value="{{blog.close_icon}}"  placeholder="close icon" >
 <input type="text"  class="form-control my-2" name="close_icon_name" value="{{blog.close_icon_name}}"  placeholder="close icon name">
-
+<hr>
 <input type="submit" class="btn btn-primary" value="Update Postjs">
-
+<hr>
 </form>
+</div>
+
 
 {% endblock %}

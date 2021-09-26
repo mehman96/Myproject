@@ -1,15 +1,22 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-<h3 class="my-3"> Portfolio heading </h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary"> Portfolio heading </h3>
+<div class="col-12">
 <form action="/admin/porthead" method='POST'>
 <input type="text"  class="form-control my-2" name="portfolio_subheading"  placeholder="portfolio subheading" >
 <input type="text"  class="form-control my-2" name="portfolio_heading"  placeholder="portfolio heading" >
 <input type="submit" class="btn btn-primary" value="Add heading">
-
-</form>
 <hr>
-<h3 class="my-3"> Heading</h3>
+</form>
+</div>
+<hr>
+
+<div class="col-12">
+<h3 class="text-warning"> Heading</h3>
 <table class="table">
     <thead>
         <tr>
@@ -19,16 +26,19 @@
             <th>Actions</th>
         </tr>
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for porthead  in portheads %}
         
         <tr>
-            <td scope="row">{{porthead.id}}</td>
-            <td>{{porthead.portfolio_subheading}}</td>
-            <td>{{porthead.portfolio_heading}}</td>
+            <td  class="text-primary" scope="row">{{porthead.id}}</td>
+            <td  class="text-primary">{{porthead.portfolio_subheading}}</td>
+            <td  class="text-primary">{{porthead.portfolio_heading}}</td>
         
             <td>
-                <a href="/admin/portdelete/{{porthead.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/portheaddelete/{{porthead.id}}"> <i class="fas fa-trash-alt"></i></a>
                 <a href="/admin/portheadupdate/{{porthead.id}}"> <i class="fas fa-edit"></i></a>
             </td>
         </tr>

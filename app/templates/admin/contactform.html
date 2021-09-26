@@ -2,8 +2,12 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
-<h3 class="my-3"> Info</h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary"> Info</h3>
+<hr>
+<div class="col-12">
 <table class="table">
     <thead>
         <tr>
@@ -13,16 +17,18 @@
             <th>user_phone</th>
             <th>user_message</th>
             <th>Actions</th>
-
+            <hr>
+        </div>
+        <div class="col align-self-end">
         <tbody>
             {% for contactform  in contactforms %}
     
             <tr>
-                <td scope="row">{{contactform.id}}</td>
-                <td>{{contactform.user_name}}</td>
-                <td>{{contactform.user_email}}</td>
-                <td>{{contactform.user_phone}}</td>
-                <td>{{contactform.user_message}}</td>
+                <td  class="text-warning"scope="row">{{contactform.id}}</td>
+                <td  class="text-warning">{{contactform.user_name}}</td>
+                <td class="text-warning">{{contactform.user_email}}</td>
+                <td class="text-warning">{{contactform.user_phone}}</td>
+                <td  class="text-warning">{{contactform.user_message}}</td>
                 <td>
                     <a href="/admin/contactformdelete/{{contactform.id}}"> <i class="fas fa-trash-alt"></i></a>
                 </td>

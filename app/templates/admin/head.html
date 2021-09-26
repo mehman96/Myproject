@@ -1,15 +1,22 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
-<h3>Add Menu bar</h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary" >Add Menu bar</h3>
+<div class="col-12">
 <form action="/admin/head" method='POST'>
     <input type="text" class="form-control my-2"name="menu_name"placeholder="menu name">
+    <hr>
     <input type="submit" class="btn btn-primary" value="Add Menu bar">
-
+    <hr>
 </form>
+</div>
 <hr>
-<h3 class="my-3">Menu bar</h3>
+
+<div class="col-12">
+<h3 class="text-warning">Menu bar</h3>
 <table class="table">
     <thead>
         <tr>
@@ -17,13 +24,16 @@
             <th> menu name</th>
         </tr>
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for head  in heads %}
 
         <tr>
-            <td scope="row">{{head.id}}</td>
-            <td>{{head.menu_icon}}</td>
-            <td>{{head.menu_name}}</td>
+            <td  class="text-primary" scope="row">{{head.id}}</td>
+            <td  class="text-primary">{{head.menu_icon}}</td>
+            <td  class="text-primary">{{head.menu_name}}</td>
            
             <td>
                 <a href="/admin/headdelete/{{head.id}}"> <i class="fas fa-trash-alt"></i></a>

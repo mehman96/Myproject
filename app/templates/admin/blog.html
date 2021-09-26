@@ -1,7 +1,11 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-<h3 class="my-3"> Add post </h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary"> Add post </h3>
+<div class="col-12">
 <form action="/admin/blog" method='POST' enctype="multipart/form-data"> 
 <input type="text"  class="form-control my-2" name="project_name_js"  placeholder="Project name js" >
 <input type="text"  class="form-control my-2" name="project_header_js"  placeholder="project header js" >
@@ -12,10 +16,12 @@
 <input type="text"  class="form-control my-2" name="close_icon"  placeholder="close_icon" >
 <input type="text"  class="form-control my-2" name="close_icon_name"  placeholder="close icon name">
 <input type="submit" class="btn btn-primary" value="Add Post">
-
-</form>
 <hr>
-<h3 class="my-3"> All Post </h3>
+</form>
+</div>
+<hr>
+<div class="col-12">
+<h3 class="text-warning"> All Post </h3>
 <table class="table">
     <thead>
         <tr>
@@ -32,20 +38,22 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody>
+    <hr>
+</div>
+<div class="col align-self-end">
         {% for blog in blogs %}
         
         <tr>
-            <td scope="row">{{blog.id}}</td>
-            <td>{{blog.project_close_img}}</td>
-            <td>{{blog.project_name_js}}</td>
-            <td>{{blog.project_header_js}}</td>
-            <td>{{blog.project_img_js}}</td>
-            <td>{{blog.project_desc_js}}</td>
-            <td>{{blog.project_client}}</td>
-            <td>{{blog.project_cat}}</td>
-            <td>{{blog.close_icon}}</td>
-            <td>{{blog.close_icon_name}}</td>
+            <td class="text-primary"   scope="row">{{blog.id}}</td>
+            <td class="text-primary" > {{blog.project_close_img}}</td>
+            <td class="text-primary" > {{blog.project_name_js}}</td>
+            <td class="text-primary" >  {{blog.project_header_js}}</td>
+            <td class="text-primary" > {{blog.project_img_js}}</td>
+            <td class="text-primary" > {{blog.project_desc_js}}</td>
+            <td class="text-primary" > {{blog.project_client}}</td>
+            <td class="text-primary" > {{blog.project_cat}}</td>
+            <td class="text-primary" > {{blog.close_icon}}</td>
+            <td class="text-primary" > {{blog.close_icon_name}}</td>
             <td>
                 <a href="/admin/blogdelete/{{blog.id}}"> <i class="fas fa-trash-alt"></i></a>
                 <a href="/admin/blogupdate/{{blog.id}}"> <i class="fas fa-edit"></i></a>

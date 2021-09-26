@@ -1,8 +1,11 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
-<h3>Add Feedback</h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary" >Add Feedback</h3>
+<div class="col-12">
 <form action="/admin/feedback" method='POST' enctype="multipart/form-data">
     <input type="file" class="form-control my-2"name="commenter_img"placeholder="commenter img">
     <input type="text" class="form-control my-2"name="commenter_name"placeholder="commenter name">
@@ -10,11 +13,14 @@
     <input type="text" class="form-control my-2"name="commenter_twitter"placeholder="commenter twitter">
     <input type="text" class="form-control my-2"name="commenter_facebook"placeholder="commenter facebook">
     <input type="text" class="form-control my-2"name="commenter_linkedin"placeholder="commenter linkedin">
+    <hr>
     <input type="submit" class="btn btn-primary" value="Add Feedback">
-
-</form>
 <hr>
-<h3 class="my-3"> About people</h3>
+</form>
+</div>
+<hr>
+<div class="col-12">
+<h3 class="text-warning"> About people</h3>
 <table class="table">
     <thead>
         <tr>
@@ -27,19 +33,22 @@
             <th>commenter linkedin</th>
 
             <th>Actions</th>
-        </tr>
+        </tr> 
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for test  in tests %}
 
         <tr>
-            <td scope="row">{{test.id}}</td>
-            <td>{{test.commenter_img}}</td>
-            <td>{{test.commenter_name}}</td>
-            <td>{{test.commenter_title}}</td>
-            <td>{{test.commenter_twitter}}</td>
-            <td>{{test.commenter_facebook}}</td>
-            <td>{{test.commenter_linkedin}}</td>
+            <td   scope="row">{{test.id}}</td>
+            <td class="text-primary" >{{test.commenter_img}}</td>
+            <td class="text-primary" >{{test.commenter_name}}</td>
+            <td class="text-primary" >{{test.commenter_title}}</td>
+            <td class="text-primary" >{{test.commenter_twitter}}</td>
+            <td class="text-primary" >{{test.commenter_facebook}}</td>
+            <td class="text-primary" >{{test.commenter_linkedin}}</td>
 
             <td>
                 <a href="/admin/feedbackdelete/{{test.id}}"> <i class="fas fa-trash-alt"></i></a>

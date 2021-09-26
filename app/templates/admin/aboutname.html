@@ -1,16 +1,23 @@
 {% extends "admin/base.html" %}
 
 {% block content %}
-
-<h3>Add about heading</h3>
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary" >Add about heading</h3>   
+<div class="col-12">
 <form action="/admin/aboutname" method='POST'>
     <input type="text" class="form-control my-2" name="about_heading_name" placeholder="head name">
     <input type="text" class="form-control my-2" name="about_desc_name" placeholder="desc">
+    <hr>
     <input type="submit" class="btn btn-primary" value="Add about heading">
-
-</form>
 <hr>
-<h3 class="my-3"> About Heading</h3>
+</form>
+</div>
+<hr>
+
+<div class="col-12">
+<h3 class="text-warning"> About Heading</h3>
 <table class="table">
     <thead>
         <tr>
@@ -21,13 +28,16 @@
             <th>Actions</th>
         </tr>
     </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
     <tbody>
         {% for aboutname in aboutnames %}
 
         <tr>
-            <td scope="row">{{aboutname.id}}</td>
-            <td>{{aboutname.about_heading_name}}</td>
-            <td>{{aboutname.about_desc_name}}</td>
+            <td class="text-primary"  scope="row">{{aboutname.id}}</td>
+            <td class="text-primary"  >{{aboutname.about_heading_name}}</td>
+            <td class="text-primary"  >{{aboutname.about_desc_name}}</td>
 
             <td>
                 <a href="/admin/aboutdelete/{{aboutname.id}}"> <i class="fas fa-trash-alt"></i></a>
